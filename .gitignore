@@ -1,0 +1,9 @@
+﻿/test-dsh-home/
+/results/
+*.log
+.env
+.env.*
+!.env.example
+node_modules/
+
+/test-phase3-home/

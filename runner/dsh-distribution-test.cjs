@@ -1,0 +1,14 @@
+'use strict';
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const { derive, verifyFile, resolveDistribution, archiveFromWorker, internalArchive } = require('./dsh-distribution.cjs');
+const valid = { LOCALAPPDATA: 'C:\\Example\\AppData\\Local', APPDATA: 'C:\\Example\\AppData\\Roaming' };
+const result = derive(valid);
+assert.equal(result.runtime, path.win32.join(valid.LOCALAPPDATA, 'DSH Tauri', 'runtime', 'win32-x64', 'DSH Tauri.exe'));
+assert.equal(result.archive, path.win32.join(valid.APPDATA, 'dsh-tauri', 'dependencies', 'dsh', 'deepseek-harness-pkg-windows.asar'));
+for (const env of [{}, { ...valid, LOCALAPPDATA: 'relative' }, { ...valid, APPDATA: 'C:\\Other\\AppData\\Roaming' }, { ...valid, APPDATA: valid.APPDATA + '\\..\\Roaming' }, { ...valid, LOCALAPPDATA: '\\\\server\\share\\AppData\\Local' }, { ...valid, APPDATA: 'C:\\Example\\AppData\\Local' }]) assert.throws(() => derive(env), { code: 'BLOCKED' });
+assert.throws(() => verifyFile(path.join(__dirname, '..', 'results', 'phase5-missing-file')), { code: 'BLOCKED' });
+for (const value of [undefined, 'relative', 'C:\\wrong\\archive.asar', result.archive + '.other']) assert.throws(() => archiveFromWorker({ [internalArchive]: value }), { code: 'BLOCKED' });
+const installed = resolveDistribution();
+assert.equal(archiveFromWorker({ [internalArchive]: installed.archive }).toLowerCase(), installed.archive.toLowerCase());
+console.log('PASS: fixed derivation, rejected malformed inputs, missing file, and installed distribution');

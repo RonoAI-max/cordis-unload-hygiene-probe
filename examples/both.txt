@@ -1,0 +1,12 @@
+DSH fixed-fixture demo: both
+good: clean fixture (@local/cordis-unload-hygiene-phase3)
+  interval: 1 -> 0 at phase3-plugin/index.js:9:20
+  timeout: 1 -> 0 at phase3-plugin/index.js:10:19
+  listener: 1 -> 0 at phase3-plugin/index.js:11:11
+  cleanup: true; instrumentation restored: true
+leak: intentional leak detected (@local/cordis-unload-hygiene-phase3)
+  interval: 1 -> 1 at phase3-plugin/index.js:9:20
+  timeout: 1 -> 1 at phase3-plugin/index.js:10:19
+  listener: 1 -> 1 at phase3-plugin/index.js:11:11
+  cleanup: true; instrumentation restored: true
+Trusted fixed fixtures only; not arbitrary plugin diagnosis or an OS security sandbox.

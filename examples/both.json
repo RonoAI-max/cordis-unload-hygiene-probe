@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "status": "completed",
+  "integration": "real-dsh-profile",
+  "demo": "both",
+  "trials": [
+    {
+      "fixture": "good",
+      "outcome": "clean",
+      "bundle": "@local/cordis-unload-hygiene-phase3",
+      "resources": [
+        {
+          "type": "interval",
+          "before": 1,
+          "after": 0,
+          "source": {
+            "file": "phase3-plugin/index.js",
+            "line": 9,
+            "column": 20
+          }
+        },
+        {
+          "type": "timeout",
+          "before": 1,
+          "after": 0,
+          "source": {
+            "file": "phase3-plugin/index.js",
+            "line": 10,
+            "column": 19
+          }
+        },
+        {
+          "type": "listener",
+          "before": 1,
+          "after": 0,
+          "source": {
+            "file": "phase3-plugin/index.js",
+            "line": 11,
+            "column": 11
+          }
+        }
+      ],
+      "applied": 1,
+      "disposed": 1,
+      "cleanupComplete": true,
+      "globalsRestored": true
+    },
+    {
+      "fixture": "leak",
+      "outcome": "intentional_leak_detected",
+      "bundle": "@local/cordis-unload-hygiene-phase3",
+      "resources": [
+        {
+          "type": "interval",
+          "before": 1,
+          "after": 1,
+          "source": {
+            "file": "phase3-plugin/index.js",
+            "line": 9,
+            "column": 20
+          }
+        },
+        {
+          "type": "timeout",
+          "before": 1,
+          "after": 1,
+          "source": {
+            "file": "phase3-plugin/index.js",
+            "line": 10,
+            "column": 19
+          }
+        },
+        {
+          "type": "listener",
+          "before": 1,
+          "after": 1,
+          "source": {
+            "file": "phase3-plugin/index.js",
+            "line": 11,
+            "column": 11
+          }
+        }
+      ],
+      "applied": 1,
+      "disposed": 1,
+      "cleanupComplete": true,
+      "globalsRestored": true
+    }
+  ],
+  "limitation": "Trusted fixed fixtures only; not arbitrary plugin diagnosis or an OS security sandbox."
+}

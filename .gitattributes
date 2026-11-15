@@ -1,0 +1,3 @@
+# Preserve the exact verified bytes across Git checkouts.
+# The manifest hashes file contents, including original line endings.
+* -text
