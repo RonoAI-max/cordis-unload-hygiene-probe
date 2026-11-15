@@ -122,4 +122,4 @@ This independent prototype is not affiliated with or endorsed by DeepSeek. DSH i
 
 ## License
 
-License selection for this project is pending author approval. No open-source license or redistribution permission is implied by the current candidate.
+The original diagnostic code and project-authored documentation are licensed under the [MIT License](LICENSE) (Copyright (c) 2026 Rono). DSH Desktop, its runtime, and other third-party components are not included or relicensed by this project; their separate license and usage terms continue to apply.
