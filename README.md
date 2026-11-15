@@ -44,7 +44,7 @@ flowchart LR
 | Clean | 6/6 | 0 |
 | Intentional leak | 6/6 | 18 total (3 per trial) |
 
-Reproduced in a fresh Windows 11 25H2 VM on the same physical host, using separately installed DSH Desktop 0.31.3 and Node.js v24.18.0 x64. The 18 resources in the intentional-leak group were detected before test cleanup; all completed trials verified cleanup and instrumentation restoration. These are controlled fixture results, not measured real-world accuracy or independent third-party hardware compatibility.
+Reproduced in a fresh Windows 11 25H2 VM on the same physical host, using separately installed DSH Tauri Desktop 0.31.3 and Node.js v24.18.0 x64. The 18 resources in the intentional-leak group were detected before test cleanup; all completed trials verified cleanup and instrumentation restoration. These are controlled fixture results, not measured real-world accuracy or independent third-party hardware compatibility.
 
 See [validation details](docs/validation.md) and the [JSON example](examples/both.json).
 
@@ -118,7 +118,7 @@ The intended outcome is a useful, verifiable developer tool that contributes to 
 
 Only the trusted fixed fixture is supported. Global timer wrappers and dedicated-emitter methods are instrumented in an isolated child process and restored after completed tests. This is **not** an OS security sandbox, network firewall, general memory-leak detector, or robust ownership boundary. Do not run untrusted plugins or use production settings. Unsupported resource types and lifecycle operations are described in [architecture](docs/architecture.md).
 
-This independent prototype is not affiliated with or endorsed by DeepSeek. DSH is a separate dependency subject to its own terms.
+This independent prototype is not affiliated with or endorsed by DeepSeek or the DSH Tauri community. The upstream [DeepSeek Harness](https://github.com/DeepSeek-ai/deepseek-harness) is MIT-licensed. The tested desktop distribution is the independent [DSH Tauri Desktop](https://github.com/dsh-tauri/deepseek-harness-desktop); its published terms include a non-commercial condition. The separately distributed [runtime package](https://github.com/dsh-tauri/deepseek-harness-pkg) also states a non-commercial use restriction. Our validation is for development and research; this project does not grant rights to commercial use of those dependencies. Future official-upstream integration and distribution require separate compatibility and rights review.
 
 ## License
 

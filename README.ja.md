@@ -37,4 +37,4 @@ node scripts/diagnose.cjs --demo both --json
 
 ## ライセンス
 
-本プロジェクトの自作診断コードおよび自作ドキュメントは [MIT License](LICENSE)（Copyright (c) 2026 Rono）で提供します。DSH Desktop、本体ランタイムおよび第三者コンポーネントは同梱せず、それぞれのライセンス・利用条件に従います。
+本プロジェクトの自作診断コードおよび自作ドキュメントは [MIT License](LICENSE)（Copyright (c) 2026 Rono）で提供します。DSH本体・ランタイム・第三者コンポーネントは同梱せず、それぞれの利用条件に従います。上流の [DeepSeek Harness](https://github.com/DeepSeek-ai/deepseek-harness) はMITですが、検証に使用した非公式の [DSH Tauri Desktop](https://github.com/dsh-tauri/deepseek-harness-desktop) には非商用条件があり、[配布ランタイム](https://github.com/dsh-tauri/deepseek-harness-pkg) にも非商用利用の制約が記載されています。本プロジェクトのMITはそれらの商用利用を許諾するものではありません。今後の公式上流への統合や配布は、互換性・権利関係を改めて確認します。
