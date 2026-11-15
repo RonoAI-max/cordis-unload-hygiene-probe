@@ -100,7 +100,7 @@ The project aims to evolve from a fixed-fixture experiment into a supported deve
 
 1. Expand to explicitly authorized, trusted development plugins with reviewed resource attribution and stronger cleanup checks.
 2. Improve coverage, test failure handling, compatibility and repeatable regression reports.
-3. Explore DSH-supported integration, developer-facing UI and community distribution only after validation and technical feedback.
+3. Explore opt-in automatic diagnosis after plugin unload/reload and in-app DSH warnings showing residual resources and attributable source locations, subject to supported lifecycle/UI APIs and validation. Community distribution remains conditional on technical feedback and rights review.
 
 See [ROADMAP.md](ROADMAP.md) for the proposed milestones and acceptance criteria. No future functionality is claimed as implemented.
 

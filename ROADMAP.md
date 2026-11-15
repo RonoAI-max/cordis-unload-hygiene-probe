@@ -7,8 +7,18 @@ This is a proposed, milestone-based roadmap, not a delivery schedule or a claim 
 | v0.1 — demonstrated | Real DSH fixed-fixture CLI | 6 clean and 6 intentional-leak trials; correct counts and relative source positions; cleanup and restoration checks; fresh Windows VM reproduction |
 | v0.2 — planned | Trusted development-plugin diagnosis | Opt-in test profile, explicit plugin selection without production settings, reviewed lifecycle/API and resource attribution, known false positives and unsupported cases, cleanup/restore tests |
 | v0.3 — planned | Regression-testing workflow | Repeatable load/unload cycles, machine-readable reports with versioned schema, before/after comparison, compatibility matrix and CI-friendly result codes on supported environments |
-| v0.4 — exploratory | Supported DSH integration | Confirm official/stable hooks and safety boundaries, design small integration and developer-facing result view, obtain feedback; avoid depending on unsupported internals where feasible |
+| v0.4 — exploratory | Supported DSH integration and automatic unload warnings | Confirm supported lifecycle and UI extension APIs; opt-in unload-triggered diagnosis for trusted development plugins; in-app warning with resource count, types and source locations where attributable; verify clean unloads, duplicate suppression, instrumentation overhead and safe disable/restore; obtain developer feedback |
 | v1.0 — aspirational | A useful community developer tool | Published scope, documentation, regression evidence, compatibility policy, user feedback and reviewed distribution/licensing |
+
+## Automatic diagnosis and in-app warnings (planned, v0.4 exploratory)
+
+- In an explicitly enabled development mode, trigger a diagnostic check when a monitored plugin finishes unloading or reloading, without requiring a separate CLI command.
+- If tracked resources remain after the supported cleanup boundary, display a warning in DSH through a supported UI extension mechanism. Show the plugin identifier, residual count, resource types, and project-relative source locations when attribution is reliable; mark uncertain attribution explicitly.
+- Provide a developer-facing details view and access to the corresponding diagnostic report. Keep CLI and JSON reporting available as a fallback.
+- Avoid warnings on verified clean unloads; deduplicate repeated warnings, measure overhead, and allow monitoring to be disabled. Do not silently modify or automatically clean up arbitrary plugin resources.
+- Acceptance requires supported lifecycle/UI APIs, tests with clean and intentionally leaking trusted plugins, safe restoration on disable, and no exposure of production settings or sensitive paths.
+
+This is a future integration goal, not a currently implemented feature. If supported DSH hooks or UI surfaces are unavailable, retain the standalone diagnostic workflow rather than assume private interfaces are stable.
 
 ## Priority questions
 
